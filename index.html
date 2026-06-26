@@ -3,242 +3,254 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Secure Storage in Cape Town | Get a Quote — Express Removals &amp; Storage</title>
-<meta name="description" content="Affordable, secure self-storage in Cape Town. Flexible short or long-term storage with free mid-month removal into storage. Get your quote in under a minute.">
-<!-- Paid-ads landing page: keep out of organic index so it can't compete with the main site -->
+<title>Secure Storage in Cape Town from R550/month | Express Removals &amp; Storage</title>
+<meta name="description" content="Managed, staff-assisted storage in Cape Town from R550/month. We load and offload for you. Free trailer hire, no deposit, easy online booking and item retrieval. Quote in under a minute.">
 <meta name="robots" content="noindex,follow">
-<meta property="og:title" content="Secure Storage in Cape Town — Express Removals &amp; Storage">
-<meta property="og:description" content="Flexible, secure storage in Cape Town. Get a quote in under a minute.">
+<meta property="og:title" content="Secure Managed Storage in Cape Town — from R550/month">
+<meta property="og:description" content="Staff-assisted storage from R550/month. We do the lifting. Free trailer hire, no deposit.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://kjfbjummmtsuojjvspzz.supabase.co">
 <!--
-  TAGS PLAN (added at go-live, loaded async so they don't block render):
-  - Google tag (gtag.js): GA4 G-6KRFJNX3X4 + Google Ads conversion linker (for gclid/remarketing)
-  - Lucky Orange (session + form analytics)
-  Left out of this prototype so the speed comparison runs clean and we don't
-  pollute the live GA4 property with test hits.
+  TAGS (add at go-live, async): GA4 G-6KRFJNX3X4 + Ads conversion linker + Lucky Orange.
+  AUTOCOMPLETE: set MAPS_KEY to a Places key whitelisted for this domain → lazy autocomplete on focus.
+  LOGO: clean typographic lockup for speed/crispness; can swap express-logo.png in header/hero at deploy.
+  WHATSAPP: thank-you reads the webhook's quote_number and pre-fills the WhatsApp message + shows the ref.
 -->
 <style>
-  :root{
-    --blue:#0d5bbf; --blue-dark:#0a3f86; --ink:#16243a; --muted:#5b6b82;
-    --line:#dde5ef; --bg:#f4f7fb; --ok:#1c8a4d; --radius:14px;
-  }
+  :root{--navy:#1F3A8A;--blue:#2A5BB8;--ink:#16243a;--muted:#5b6b82;--line:#dde5ef;--bg:#f5f8fc;--ok:#1c8a4d;--gold:#f0a500;--wa:#25D366;--r:14px}
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink);background:var(--bg);line-height:1.5}
-  .bar{background:var(--blue-dark);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .bar strong{font-size:17px;letter-spacing:.3px}
-  .bar a{color:#fff;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap}
-  .wrap{max-width:640px;margin:0 auto;padding:18px}
-  .hero{padding:22px 0 6px}
-  h1{font-size:26px;line-height:1.2;margin:0 0 8px}
-  .sub{color:var(--muted);font-size:16px;margin:0 0 14px}
-  .trust{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px;padding:0;list-style:none}
-  .trust li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--blue-dark)}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:14px 0;
-    box-shadow:0 1px 3px rgba(16,36,58,.06)}
-  .legend{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 12px}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  .bar{background:#fff;border-bottom:1px solid var(--line);padding:9px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:5}
+  .logo{display:flex;flex-direction:column;line-height:1.05}
+  .logo .e{background:var(--navy);color:#fff;font-weight:800;font-style:italic;font-size:17px;letter-spacing:.5px;padding:3px 9px 3px 7px;border-radius:4px;align-self:flex-start}
+  .logo .r{color:var(--navy);font-weight:700;font-size:9.5px;letter-spacing:1.8px;margin-top:4px;padding-left:1px}
+  .bar a.call{color:var(--navy);text-decoration:none;font-weight:800;font-size:15px;white-space:nowrap}
+  .wrap{max-width:660px;margin:0 auto;padding:18px}
+  .hero{padding:18px 0 2px}
+  .pill{display:inline-block;background:var(--gold);color:#3a2a00;font-weight:800;font-size:12.5px;padding:5px 11px;border-radius:999px;margin-bottom:10px}
+  h1{font-size:26px;line-height:1.18;margin:0 0 8px;color:var(--navy)}
+  .sub{color:var(--muted);font-size:15.5px;margin:0 0 6px}
+  .benefits{list-style:none;margin:14px 0 2px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .benefits li{display:flex;gap:9px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px}
+  .benefits .ic{flex:none;font-size:17px;line-height:1.3}
+  .benefits b{display:block;font-size:13.5px;color:var(--ink);line-height:1.25}
+  .benefits span{font-size:12px;color:var(--muted);line-height:1.3}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;margin:16px 0;box-shadow:0 1px 3px rgba(16,36,58,.06)}
+  .prog{font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--muted);text-transform:uppercase;margin:0 0 4px}
+  .pbar{height:6px;border-radius:999px;background:#e7edf6;overflow:hidden;margin:0 0 16px}
+  .pbar i{display:block;height:100%;background:var(--blue);width:33%;transition:width .35s ease}
   label{display:block;font-weight:600;font-size:15px;margin:14px 0 6px}
-  input,select,textarea{width:100%;font-size:16px;padding:13px 14px;border:1px solid var(--line);
-    border-radius:10px;background:#fff;color:var(--ink);font-family:inherit}
-  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(13,91,191,.15)}
-  .row{display:flex;gap:12px}
-  .row>div{flex:1}
+  input,select{width:100%;font-size:16px;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-family:inherit}
+  input:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(42,91,184,.18)}
+  .row{display:flex;gap:12px}.row>div{flex:1}
   .opts{display:grid;gap:10px;margin-top:6px}
-  .opt{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer}
+  .opt{display:flex;align-items:flex-start;gap:11px;border:1px solid var(--line);border-radius:11px;padding:13px 14px;cursor:pointer;transition:border-color .15s,background .15s}
   .opt input{width:auto;margin-top:3px}
-  .opt.sel{border-color:var(--blue);background:#f1f6fe}
+  .opt.sel{border-color:var(--blue);background:#eef3fc}
   .opt b{font-size:15px}.opt span{display:block;font-size:13px;color:var(--muted)}
-  .hint{font-size:13px;color:var(--muted);margin-top:4px}
-  button{width:100%;margin-top:18px;background:var(--blue);color:#fff;border:0;border-radius:12px;
-    padding:16px;font-size:17px;font-weight:700;cursor:pointer}
-  button:active{background:var(--blue-dark)}
+  .hint{font-size:13px;color:var(--muted);margin-top:5px}
+  .btns{display:flex;gap:10px;margin-top:18px}
+  button{flex:1;background:var(--blue);color:#fff;border:0;border-radius:12px;padding:15px;font-size:16.5px;font-weight:700;cursor:pointer}
+  button:active{background:var(--navy)}
+  button.ghost{flex:none;background:#fff;color:var(--blue);border:1px solid var(--line);min-width:84px}
   .hidden{display:none}
-  .done{text-align:center;padding:30px 14px}
-  .done .tick{width:56px;height:56px;border-radius:50%;background:var(--ok);color:#fff;font-size:30px;
-    display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .review dl{margin:0;border:1px solid var(--line);border-radius:11px;overflow:hidden}
+  .review .rowi{display:flex;justify-content:space-between;gap:12px;padding:11px 13px;border-bottom:1px solid var(--line);font-size:14.5px}
+  .review .rowi:last-child{border-bottom:0}
+  .review dt{color:var(--muted)}.review dd{margin:0;font-weight:600;text-align:right}
+  .done{text-align:center;padding:24px 14px}
+  .done .tick{width:54px;height:54px;border-radius:50%;background:var(--ok);color:#fff;font-size:29px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+  .refbox{display:inline-block;background:#eef3fc;border:1px solid #d6e2f7;border-radius:10px;padding:8px 14px;font-weight:800;color:var(--navy);letter-spacing:.5px;margin:4px 0 2px}
+  .wabtn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;border-radius:12px;padding:14px;font-weight:800;text-decoration:none;font-size:16px;margin:16px 0 6px}
+  .portal{background:#f7faff;border:1px solid var(--line);border-radius:12px;padding:13px;margin:14px 0;font-size:13.5px;color:var(--ink);text-align:left}
+  .linklike{background:none;border:0;color:var(--blue);font-weight:700;cursor:pointer;font-size:14px;padding:6px}
   .err{background:#fdecec;border:1px solid #f5c2c2;color:#a11;border-radius:10px;padding:12px;margin-top:12px;font-size:14px}
   footer{color:var(--muted);font-size:13px;text-align:center;padding:18px}
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
   <div class="bar">
-    <strong>EXPRESS REMOVALS &amp; STORAGE</strong>
-    <a href="tel:+27838410995">📞 083 410 6995</a>
+    <div class="logo"><span class="e">EXPRESS</span><span class="r">REMOVALS &amp; STORAGE</span></div>
+    <a class="call" href="tel:+27838410995">📞 083 410 6995</a>
   </div>
 
   <div class="wrap">
-    <div class="hero">
-      <h1>Secure, affordable storage in Cape Town</h1>
-      <p class="sub">Flexible short or long-term storage from an established Montague Gardens company. Get your quote in under a minute.</p>
-      <ul class="trust">
-        <li>✓ Access-controlled &amp; secure</li>
-        <li>✓ GPS-tracked vehicles &amp; teams</li>
-        <li>✓ Free mid-month removal into storage</li>
-        <li>✓ Packaging supplies available</li>
+    <div class="hero reveal">
+      <span class="pill">Storage from R550 / month</span>
+      <h1>Secure managed storage in Cape Town</h1>
+      <p class="sub">Most self storage is lock-up-and-go. We're different — <b>our team loads and offloads for you</b>, in a secure, access-controlled warehouse.</p>
+      <ul class="benefits">
+        <li><span class="ic">💪</span><div><b>We do the lifting</b><span>Staff load &amp; offload for you</span></div></li>
+        <li><span class="ic">🛻</span><div><b>Free trailer hire</b><span>Get your goods in, free</span></div></li>
+        <li><span class="ic">🏷️</span><div><b>50% off mid-month</b><span>On moves into storage</span></div></li>
+        <li><span class="ic">✅</span><div><b>No deposit</b><span>Start without a big outlay</span></div></li>
+        <li><span class="ic">📱</span><div><b>Manage online</b><span>Deliveries &amp; retrievals anytime</span></div></li>
+        <li><span class="ic">🔒</span><div><b>Properly secure</b><span>CCTV · access · armed response</span></div></li>
       </ul>
     </div>
 
     <form id="quoteForm" novalidate>
-      <!-- SECTION 1: needs first (service details before contact details) -->
-      <div class="card">
-        <p class="legend">1 · What do you need?</p>
+      <div class="card reveal">
+        <p class="prog" id="progLabel">Step 1 of 3 · What you need</p>
+        <div class="pbar"><i id="pbar"></i></div>
 
-        <div class="opts" id="serviceOpts">
-          <label class="opt sel">
-            <input type="radio" name="service" value="Storage" checked>
-            <span><b>Storage only</b><span>I'll bring my goods / arrange my own transport</span></span>
-          </label>
-          <label class="opt">
-            <input type="radio" name="service" value="Removal Into Storage">
-            <span><b>Removal into storage</b><span>Free removal into storage on mid-month moves</span></span>
-          </label>
-        </div>
-
-        <label for="months">How long would you like to store?</label>
-        <select id="months" name="months">
-          <option value="">Not sure yet</option>
-          <option value="1">1 month or less</option>
-          <option value="3">2–3 months</option>
-          <option value="8">8+ months (long term)</option>
-        </select>
-
-        <label for="size">Roughly how much are you storing?</label>
-        <select id="size" name="size">
-          <option value="">Not sure</option>
-          <option value="Small (a few items)">A few items</option>
-          <option value="Medium (1 bedroom)">About 1 bedroom</option>
-          <option value="Large (2–3 bedroom)">2–3 bedroom home</option>
-          <option value="Extra large (4+ bedroom / business)">4+ bedroom / business stock</option>
-        </select>
-
-        <div id="collectWrap" class="hidden">
-          <label for="collect">Collection address (we'll calculate your removal)</label>
-          <input type="text" id="collect" name="collect" autocomplete="street-address" placeholder="Street, suburb, Cape Town">
-          <p class="hint">Just the suburb is fine — we'll confirm the exact distance on your quote.</p>
-        </div>
-      </div>
-
-      <!-- SECTION 2: contact last -->
-      <div class="card">
-        <p class="legend">2 · Where do we send your quote?</p>
-        <div class="row">
-          <div>
-            <label for="fn">First name</label>
-            <input type="text" id="fn" name="fn" autocomplete="given-name" required>
+        <div id="step1">
+          <div class="opts" id="serviceOpts">
+            <label class="opt sel"><input type="radio" name="service" value="Storage" checked>
+              <span><b>Storage only</b><span>I'll arrange getting my goods to the warehouse</span></span></label>
+            <label class="opt"><input type="radio" name="service" value="Removal Into Storage">
+              <span><b>Removal into storage</b><span>50% off your mid-month move into storage</span></span></label>
           </div>
-          <div>
-            <label for="ln">Last name</label>
-            <input type="text" id="ln" name="ln" autocomplete="family-name" required>
+          <label for="size">Roughly how much are you storing?</label>
+          <select id="size">
+            <option value="">Not sure — help me choose</option>
+            <option value="Mini Locker (R550/mo)">Mini Locker · ~15 boxes, pram — from R550/mo</option>
+            <option value="Half Unit (R990/mo)">Half Unit · ~30 boxes, 2 bikes — from R990/mo</option>
+            <option value="Single Unit (R1650/mo)">Single Unit · bed, couch, fridge, 50–80 boxes — from R1,650/mo</option>
+            <option value="Whole Stack (R2500/mo)">Whole Stack · 1-bed home, 80–120 boxes — from R2,500/mo</option>
+          </select>
+          <p class="hint">Not sure? Pick the closest — we'll confirm the right size on your quote.</p>
+          <label for="months">How long would you like to store?</label>
+          <select id="months">
+            <option value="">Not sure yet</option><option value="1">1 month or less</option>
+            <option value="3">2–3 months</option><option value="8">8+ months (long term)</option>
+          </select>
+          <div id="collectWrap" class="hidden">
+            <label for="collect">Collection address</label>
+            <input type="text" id="collect" autocomplete="street-address" placeholder="Start typing your address…">
+            <p class="hint">Pick from the suggestions so we get the exact distance right.</p>
           </div>
+          <div class="btns"><button type="button" id="to2">Continue →</button></div>
         </div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required>
-        <label for="phone">Mobile number</label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required placeholder="08X XXX XXXX">
 
-        <button type="submit" id="submitBtn">Get my storage quote →</button>
-        <div id="formError" class="err hidden"></div>
-        <p class="hint" style="text-align:center;margin-top:12px">No obligation · We'll email &amp; WhatsApp your quote shortly.</p>
+        <div id="step2" class="hidden">
+          <div class="row">
+            <div><label for="fn">First name</label><input type="text" id="fn" autocomplete="given-name"></div>
+            <div><label for="ln">Last name</label><input type="text" id="ln" autocomplete="family-name"></div>
+          </div>
+          <label for="email">Email</label><input type="email" id="email" autocomplete="email" inputmode="email">
+          <p class="hint">We'll send your full quote here — no spam, ever.</p>
+          <label for="phone">Mobile number</label><input type="tel" id="phone" autocomplete="tel" inputmode="tel" placeholder="08X XXX XXXX">
+          <p class="hint">So we can WhatsApp your quote and confirm the details.</p>
+          <div class="btns"><button type="button" class="ghost" id="back2">← Back</button><button type="button" id="to3">Review →</button></div>
+        </div>
+
+        <div id="step3" class="hidden review">
+          <p class="hint" style="margin:0 0 12px">Quick check — does everything look right?</p>
+          <dl id="reviewList"></dl>
+          <div class="btns"><button type="button" class="ghost" id="back3">← Edit</button><button type="submit" id="submitBtn">Get my quote →</button></div>
+          <div id="formError" class="err hidden"></div>
+          <p class="hint" style="text-align:center;margin-top:12px">No obligation · We'll never share your details.</p>
+        </div>
       </div>
     </form>
 
     <div id="thankYou" class="done hidden">
       <div class="tick">✓</div>
       <h1>Thanks — your quote is on the way</h1>
-      <p class="sub">Our team is preparing your storage quote now. You'll receive it by email and WhatsApp shortly. Need it urgently? Call <a href="tel:+27838410995">083 410 6995</a>.</p>
+      <p class="sub">We're preparing your storage quote now and emailing it to you. Your reference:</p>
+      <div class="refbox" id="refBox">—</div>
+      <a class="wabtn" id="waBtn" href="#" target="_blank" rel="noopener">💬 Book or chat on WhatsApp</a>
+      <p class="hint">Want to book urgently? Message us on WhatsApp and we'll pull up your quote straight away.</p>
+      <div class="portal">
+        <b>What happens next</b><br>
+        Check your email for your full quote — you can view and accept it online. Once booked, you manage everything from your customer portal: request deliveries, add items, or retrieve from your unit anytime.
+      </div>
+      <button type="button" class="linklike" id="again">Start another quote</button>
     </div>
   </div>
 
-  <footer>Express Removals &amp; Storage · Montague Gardens, Cape Town</footer>
+  <footer>Express Removals &amp; Storage · Apollo Park, Montague Gardens, Cape Town</footer>
 
 <script>
 (function(){
   "use strict";
-  var WEBHOOK = "https://kjfbjummmtsuojjvspzz.supabase.co/functions/v1/quote-webhook";
+  var WEBHOOK="https://kjfbjummmtsuojjvspzz.supabase.co/functions/v1/quote-webhook";
+  var WA_NUMBER="27838410995";
+  var MAPS_KEY="";
 
-  // --- ad attribution: URL params first, er_* cookies as fallback ---
-  function qp(name){ try{ return new URLSearchParams(location.search).get(name)||""; }catch(e){ return ""; } }
-  function cookie(name){
-    var m = document.cookie.match(new RegExp("(?:^|; )"+name.replace(/([.$?*|{}()\[\]\\\/\+^])/g,"\\$1")+"=([^;]*)"));
-    return m ? decodeURIComponent(m[1]) : "";
-  }
-  function attr(key, cookieKey){ return qp(key) || cookie(cookieKey||("er_"+key)) || ""; }
+  function qp(n){try{return new URLSearchParams(location.search).get(n)||"";}catch(e){return "";}}
+  function cookie(n){var m=document.cookie.match(new RegExp("(?:^|; )"+n.replace(/([.$?*|{}()\[\]\\\/\+^])/g,"\\$1")+"=([^;]*)"));return m?decodeURIComponent(m[1]):"";}
+  function attr(k){return qp(k)||cookie("er_"+k)||"";}
+  var attribution={gclid:attr("gclid"),gbraid:attr("gbraid"),wbraid:attr("wbraid"),utm_source:attr("utm_source"),utm_medium:attr("utm_medium"),utm_campaign:attr("utm_campaign"),utm_term:attr("utm_term"),utm_content:attr("utm_content"),landing_url:location.href,referrer:document.referrer||""};
 
-  var attribution = {
-    gclid: attr("gclid"), gbraid: attr("gbraid"), wbraid: attr("wbraid"),
-    utm_source: attr("utm_source"), utm_medium: attr("utm_medium"),
-    utm_campaign: attr("utm_campaign"), utm_term: attr("utm_term"), utm_content: attr("utm_content"),
-    landing_url: location.href,
-    referrer: document.referrer || ""
-  };
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
 
-  // --- conditional collection address ---
-  var opts = document.querySelectorAll('input[name="service"]');
-  var collectWrap = document.getElementById("collectWrap");
-  function syncService(){
-    document.querySelectorAll(".opt").forEach(function(l){ l.classList.toggle("sel", l.querySelector("input").checked); });
-    var svc = document.querySelector('input[name="service"]:checked').value;
-    collectWrap.classList.toggle("hidden", svc !== "Removal Into Storage");
-  }
-  opts.forEach(function(o){ o.addEventListener("change", syncService); });
+  var collectWrap=document.getElementById("collectWrap");
+  function svc(){return document.querySelector('input[name="service"]:checked').value;}
+  function syncService(){document.querySelectorAll(".opt").forEach(function(l){l.classList.toggle("sel",l.querySelector("input").checked);});collectWrap.classList.toggle("hidden",svc()!=="Removal Into Storage");}
+  document.querySelectorAll('input[name="service"]').forEach(function(o){o.addEventListener("change",syncService);});
   syncService();
 
-  // --- submit ---
-  var form = document.getElementById("quoteForm");
-  var btn = document.getElementById("submitBtn");
-  var errBox = document.getElementById("formError");
+  var collect=document.getElementById("collect"),mapsLoaded=false;
+  collect.addEventListener("focus",function(){if(!MAPS_KEY||mapsLoaded)return;mapsLoaded=true;var s=document.createElement("script");s.src="https://maps.googleapis.com/maps/api/js?key="+MAPS_KEY+"&libraries=places";s.onload=function(){try{new google.maps.places.Autocomplete(collect,{componentRestrictions:{country:"za"},fields:["formatted_address"]});}catch(e){}};document.head.appendChild(s);});
 
-  form.addEventListener("submit", function(e){
+  var s1=document.getElementById("step1"),s2=document.getElementById("step2"),s3=document.getElementById("step3");
+  var pbar=document.getElementById("pbar"),prog=document.getElementById("progLabel");
+  function go(step){
+    [s1,s2,s3].forEach(function(s){s.classList.add("hidden");});
+    if(step===1){s1.classList.remove("hidden");pbar.style.width="33%";prog.textContent="Step 1 of 3 · What you need";}
+    if(step===2){s2.classList.remove("hidden");pbar.style.width="66%";prog.textContent="Step 2 of 3 · Your details";}
+    if(step===3){s3.classList.remove("hidden");pbar.style.width="100%";prog.textContent="Step 3 of 3 · Review";buildReview();}
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function val(id){return (document.getElementById(id).value||"").trim();}
+  function showError(m){var e=document.getElementById("formError");e.textContent=m;e.classList.remove("hidden");}
+
+  document.getElementById("to2").addEventListener("click",function(){go(2);});
+  document.getElementById("back2").addEventListener("click",function(){go(1);});
+  document.getElementById("to3").addEventListener("click",function(){
+    if(!val("fn")||!val("ln")||!val("email")||!val("phone")){go(2);return alert("Please add your name, email and mobile number first.");}
+    go(3);
+  });
+  document.getElementById("back3").addEventListener("click",function(){go(2);});
+
+  function sizeText(){var s=document.getElementById("size");return s.value?s.options[s.selectedIndex].text:"Not sure yet";}
+  function monthsText(){var m=document.getElementById("months");return m.value?m.options[m.selectedIndex].text:"Not sure yet";}
+  function buildReview(){
+    var rows=[["Service",svc()],["Storing",sizeText()],["Duration",monthsText()]];
+    if(svc()==="Removal Into Storage"&&val("collect"))rows.push(["Collect from",val("collect")]);
+    rows.push(["Name",val("fn")+" "+val("ln")],["Email",val("email")],["Mobile",val("phone")]);
+    document.getElementById("reviewList").innerHTML=rows.map(function(r){return '<div class="rowi"><dt>'+r[0]+'</dt><dd>'+esc(r[1])+'</dd></div>';}).join("");
+  }
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+  var form=document.getElementById("quoteForm"),btn=document.getElementById("submitBtn");
+  form.addEventListener("submit",function(e){
     e.preventDefault();
-    errBox.classList.add("hidden");
-    var svc = document.querySelector('input[name="service"]:checked').value;
-    var fn = document.getElementById("fn").value.trim();
-    var ln = document.getElementById("ln").value.trim();
-    var email = document.getElementById("email").value.trim();
-    var phone = document.getElementById("phone").value.trim();
-    if(!fn || !ln || !email || !phone){
-      return showError("Please fill in your name, email and mobile number.");
-    }
-
-    var months = document.getElementById("months").value;
-    var size = document.getElementById("size").value;
-    var collect = document.getElementById("collect").value.trim();
-
-    var payload = Object.assign({
-      first_name: fn,
-      last_name: ln,
-      customer_name: fn + " " + ln,
-      email: email,
-      phone: phone,
-      service_type: svc,
-      storage_unit_size: size || null,
-      web_form_storage_months: months ? Number(months) : null,
-      storage_notes: "Duration: " + (months ? months + " month(s)" : "not sure") + (size ? "; Size: " + size : ""),
-      from_address: (svc === "Removal Into Storage" && collect) ? collect : null,
-      collection_address: (svc === "Removal Into Storage" && collect) ? collect : null,
-      lead_source: "Website - Storage Landing Page (Vercel prototype)"
-    }, attribution);
-
-    btn.disabled = true; btn.textContent = "Sending…";
-
-    fetch(WEBHOOK, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    }).then(function(r){
-      if(!r.ok && r.status >= 400) throw new Error("HTTP " + r.status);
-      form.classList.add("hidden");
-      document.getElementById("thankYou").classList.remove("hidden");
-      window.scrollTo(0,0);
-    }).catch(function(){
-      btn.disabled = false; btn.textContent = "Get my storage quote →";
-      showError("Something went wrong sending your request. Please call 083 410 6995 and we'll sort it out.");
-    });
+    var fn=val("fn"),ln=val("ln"),email=val("email"),phone=val("phone");
+    if(!fn||!ln||!email||!phone){return showError("Please complete your name, email and mobile number.");}
+    var months=val("months"),size=val("size"),col=val("collect");
+    var payload=Object.assign({first_name:fn,last_name:ln,customer_name:fn+" "+ln,email:email,phone:phone,
+      service_type:svc(),storage_unit_size:size||null,web_form_storage_months:months?Number(months):null,
+      storage_notes:"Duration: "+(months?months+" month(s)":"not sure")+(size?"; Size: "+size:""),
+      from_address:(svc()==="Removal Into Storage"&&col)?col:null,collection_address:(svc()==="Removal Into Storage"&&col)?col:null,
+      lead_source:"Website - Storage Landing Page (Vercel prototype)"},attribution);
+    btn.disabled=true;btn.textContent="Sending…";
+    fetch(WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(d){return {ok:r.ok||r.status<400,data:d};});})
+      .then(function(res){
+        if(!res.ok) throw new Error("bad");
+        var qn=res.data&&res.data.quote_number?res.data.quote_number:"";
+        finish(qn,fn,svc());
+      })
+      .catch(function(){btn.disabled=false;btn.textContent="Get my quote →";showError("Something went wrong. Please call 083 410 6995 and we'll sort it out.");});
   });
 
-  function showError(msg){ errBox.textContent = msg; errBox.classList.remove("hidden"); }
+  function finish(quoteNo,name,service){
+    document.getElementById("refBox").textContent=quoteNo||"We'll email it shortly";
+    var msg="Hi Express Removals, I've just requested a storage quote on your website"+(quoteNo?(" (ref "+quoteNo+")"):"")+". I'd like to book / chat about it. Name: "+name+", Service: "+service+".";
+    document.getElementById("waBtn").href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg);
+    document.getElementById("quoteForm").classList.add("hidden");
+    document.getElementById("thankYou").classList.remove("hidden");
+    window.scrollTo(0,0);
+  }
+  document.getElementById("again").addEventListener("click",function(){location.href=location.pathname;});
 })();
 </script>
 </body>
