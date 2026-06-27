@@ -192,21 +192,27 @@
     var s=document.createElement("script");
     s.src="https://maps.googleapis.com/maps/api/js?key="+MAPS_KEY+"&v=weekly&libraries=places&loading=async";
     s.onload=function(){
-      google.maps.importLibrary("places").then(function(p){
-        var pac=new p.PlaceAutocompleteElement({includedRegionCodes:["za"]});
-        pac.style.width="100%";
-        collect.style.display="none";
-        collect.parentNode.insertBefore(pac,collect);
-        pac.addEventListener("gmp-select",function(ev){
-          var pred=ev.placePrediction;
-          try{collect.value=pred.text.text;}catch(e){}
-          var place=pred.toPlace();
-          place.fetchFields({fields:["formattedAddress"]}).then(function(){
-            if(place.formattedAddress)collect.value=place.formattedAddress;
-          }).catch(function(){});
-        });
-        try{pac.focus();}catch(e){}
-      }).catch(function(){collect.style.display="block";});
+      var tries=0;
+      (function init(){
+        if(!(window.google&&google.maps&&google.maps.places&&google.maps.places.PlaceAutocompleteElement)){
+          if(tries++<50){return setTimeout(init,100);} return;
+        }
+        try{
+          var pac=new google.maps.places.PlaceAutocompleteElement({includedRegionCodes:["za"]});
+          pac.style.width="100%";
+          collect.style.display="none";
+          collect.parentNode.insertBefore(pac,collect);
+          pac.addEventListener("gmp-select",function(ev){
+            var pred=ev.placePrediction;
+            try{collect.value=pred.text.text;}catch(e){}
+            var place=pred.toPlace();
+            place.fetchFields({fields:["formattedAddress"]}).then(function(){
+              if(place.formattedAddress)collect.value=place.formattedAddress;
+            }).catch(function(){});
+          });
+          try{pac.focus();}catch(e){}
+        }catch(e){ collect.style.display="block"; }
+      })();
     };
     document.head.appendChild(s);
   });
