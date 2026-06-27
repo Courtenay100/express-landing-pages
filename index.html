@@ -187,7 +187,29 @@
   syncService();
 
   var collect=document.getElementById("collect"),mapsLoaded=false;
-  collect.addEventListener("focus",function(){if(!MAPS_KEY||mapsLoaded)return;mapsLoaded=true;var s=document.createElement("script");s.src="https://maps.googleapis.com/maps/api/js?key="+MAPS_KEY+"&libraries=places";s.onload=function(){try{new google.maps.places.Autocomplete(collect,{componentRestrictions:{country:"za"},fields:["formatted_address"]});}catch(e){}};document.head.appendChild(s);});
+  collect.addEventListener("focus",function(){
+    if(!MAPS_KEY||mapsLoaded)return;mapsLoaded=true;
+    var s=document.createElement("script");
+    s.src="https://maps.googleapis.com/maps/api/js?key="+MAPS_KEY+"&v=weekly&libraries=places&loading=async";
+    s.onload=function(){
+      google.maps.importLibrary("places").then(function(p){
+        var pac=new p.PlaceAutocompleteElement({includedRegionCodes:["za"]});
+        pac.style.width="100%";
+        collect.style.display="none";
+        collect.parentNode.insertBefore(pac,collect);
+        pac.addEventListener("gmp-select",function(ev){
+          var pred=ev.placePrediction;
+          try{collect.value=pred.text.text;}catch(e){}
+          var place=pred.toPlace();
+          place.fetchFields({fields:["formattedAddress"]}).then(function(){
+            if(place.formattedAddress)collect.value=place.formattedAddress;
+          }).catch(function(){});
+        });
+        try{pac.focus();}catch(e){}
+      }).catch(function(){collect.style.display="block";});
+    };
+    document.head.appendChild(s);
+  });
 
   var s1=document.getElementById("step1"),s2=document.getElementById("step2"),s3=document.getElementById("step3");
   var pbar=document.getElementById("pbar"),prog=document.getElementById("progLabel");
